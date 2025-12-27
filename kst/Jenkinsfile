@@ -2,10 +2,18 @@ pipeline {
 	agent {
         label 'KST-AGENT'
     }
+    environment {
+        appVersion = '1.0.0'
+        acc_ID = ''
+        region = 'us-east-1'
+        project = 'KST'
+        component = 'dev'
+    }
     options{
         timeout(time: 30, unit: 'MINUTES')
         disableConcurrentBuilds()
     }
+    
 	stages {
 		stage('GIT CLONE'){
 			steps{
@@ -13,6 +21,7 @@ pipeline {
 				sh """
 					uname -a
 					echo "THIS IS A SAMPLE"
+                    ${appVersion}
 				"""
 				}
 			}
