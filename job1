@@ -1,4 +1,7 @@
 #!/bin/bash
 
 NAME="VISHRUTH"
+DOB="Dec 2nd 2024"
 echo "hi $NAME", MANY MANY HAPPY RETURNS OF THE DAY"
+echo "YOUR BIRTHDAY ON $DOB"
+
