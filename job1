@@ -1,0 +1,4 @@
+#!/bin/bash
+
+NAME="VISHRUTH"
+echo "hi $NAME", MANY MANY HAPPY RETURNS OF THE DAY"
