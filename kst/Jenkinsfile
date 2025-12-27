@@ -1,7 +1,7 @@
 pipeline {
-	agent {
-        label 'KST-AGENT'
-    }
+	agent # {
+    //     label 'KST-AGENT'
+    // }
 	stages {
 		stage('git clone'){
 			steps{
