@@ -22,6 +22,7 @@ pipeline {
 		success {
 			echo "job Success"
 		}
+        deleteDir()
 	}
 }
 	
