@@ -29,7 +29,7 @@ pipeline {
         stage('PRINT ENV') {
             steps{
                 script{
-                    echo 'printenv'
+                    echo 'this is version ${env.appVerson}'
                 }
             }
         }
