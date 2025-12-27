@@ -16,7 +16,7 @@ pipeline {
     // parametters{
     //     booleanparam(name: 'deploy', defaultValue: false, description: 'sample')
     // }
-    // stages {
+    stages {
     //     stage('APP VERSION'){
     //         steps{
     //             script{
