@@ -6,5 +6,12 @@ pipeline {
 				echo "this is a GIT CLONE STAGE"
 			}
 		}
+        stage('TEST') {
+            script {
+                steps {
+                    echo "THIS IS A TEST STAGE"
+                }
+            }
+        }
 	}
 }
