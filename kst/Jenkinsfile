@@ -7,8 +7,8 @@ pipeline {
 			}
 		}
         stage('TEST') {
-            script {
-                steps {
+            steps {
+                script {
                     echo "THIS IS A TEST STAGE"
                 }
             }
