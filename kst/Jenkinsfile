@@ -1,0 +1,17 @@
+pipeline {
+	agent any
+	stages {
+		stage('GIT CLONE'){
+			steps{
+				script{
+				sh """
+					uname -a
+					echo "THIS IS A SAMPLE"
+				"""
+				}
+			}
+		}
+	}
+}
+	
+	
