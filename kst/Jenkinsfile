@@ -26,6 +26,13 @@ pipeline {
 				}
 			}
 		}
+        stage('PRINT ENV') {
+            steps{
+                script{
+                    sh 'env'
+                }
+            }
+        }
 	}
 	post {
 		always {
