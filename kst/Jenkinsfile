@@ -21,7 +21,7 @@ pipeline {
 				sh """
 					uname -a
 					echo "THIS IS A SAMPLE"
-                    ${appVersion}
+                    echo "${appVersion}"
 				"""
 				}
 			}
