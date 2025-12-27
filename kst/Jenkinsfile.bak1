@@ -1,0 +1,54 @@
+pipeline {
+	agent {
+        label 'KST-AGENT'
+    }
+    environment {
+        appVersion = '1.0.0'
+        acc_ID = ''
+        region = 'us-east-1'
+        project = 'KST'
+        component = 'dev'
+    }
+    options{
+        timeout(time: 30, unit: 'MINUTES')
+        disableConcurrentBuilds()
+    }
+    parametters{
+        
+    }
+    
+	stages {
+		stage('GIT CLONE'){
+			steps{
+				script{
+				sh """
+					uname -a
+					echo "THIS IS A SAMPLE"
+                    echo "${appVersion}"
+				"""
+				}
+			}
+		}
+        stage('PRINT ENV') {
+            steps{
+                script{
+                    echo "this is Project '${env.project}'"
+                }
+            }
+        }
+	}
+	post {
+		always {
+			echo "job executed"
+            deleteDir()
+		}
+		failure {
+			echo "job failed"
+		}
+		success {
+			echo "job Success"
+		}
+	}
+}
+	
+	

@@ -1,51 +1,44 @@
 pipeline {
-	agent {
+    agent {
         label 'KST-AGENT'
     }
-    environment {
-        appVersion = '1.0.0'
-        acc_ID = ''
+    environment{
+        appVersion = ''
+        ac_ID = ''
         region = 'us-east-1'
-        project = 'KST'
+        project = 'kst' 
         component = 'dev'
     }
     options{
         timeout(time: 30, unit: 'MINUTES')
         disableConcurrentBuilds()
     }
-    
-	stages {
-		stage('GIT CLONE'){
-			steps{
-				script{
-				sh """
-					uname -a
-					echo "THIS IS A SAMPLE"
-                    echo "${appVersion}"
-				"""
-				}
-			}
-		}
-        stage('PRINT ENV') {
+    parametters{
+        booleanparam(name: 'deploy', defaultValue: false, description: 'sample')
+    }
+    stages {
+        stage('APP VERSION'){
             steps{
                 script{
-                    echo "this is Project '${env.project}'"
+                    env.appVersion=readJSON(file: 'package.json').version
                 }
             }
         }
-	}
-	post {
-		always {
-			echo "job executed"
-            deleteDir()
-		}
-		failure {
-			echo "job failed"
-		}
-		success {
-			echo "job Success"
-		}
-	}
+    }
+    stage('npm build') {
+        steps {
+            script{
+                sh """
+                    npm install
+                """
+            }
+        }
+    }
+    stage('UNIT TESTING'){
+        steps{
+            script{
+                echo "UNIT Testing"
+            }
+        }
+    }
 }
-	
-	
