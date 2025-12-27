@@ -15,5 +15,15 @@ pipeline {
                 }
             }
         }
+        stage('BUILD'){
+            steps {
+                script {
+                    sh """
+                        uname -a
+                        java --version
+                    """
+                }
+            }
+        }
 	}
 }
