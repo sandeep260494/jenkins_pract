@@ -3,7 +3,7 @@ pipeline {
         label 'KST-AGENT'
     }
     options{
-        timeout(time: '30', UNIT: 'MINUTES')
+        timeout(time: '30', UNITS: 'MINUTES')
         disableConcurrentBuilds()
     }
 	stages {
