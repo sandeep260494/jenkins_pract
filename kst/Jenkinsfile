@@ -21,7 +21,7 @@ pipeline {
                     sh """
                         uname -a
                         java --version
-                        git --version
+                        // git --version
                     """
                 }
             }
