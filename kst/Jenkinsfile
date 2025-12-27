@@ -15,6 +15,7 @@ pipeline {
 	post {
 		always {
 			echo "job executed"
+            deleteDir()
 		}
 		failure {
 			echo "job failed"
@@ -22,7 +23,6 @@ pipeline {
 		success {
 			echo "job Success"
 		}
-        deleteDir()
 	}
 }
 	
