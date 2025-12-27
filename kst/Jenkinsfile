@@ -16,15 +16,15 @@ pipeline {
     // parametters{
     //     booleanparam(name: 'deploy', defaultValue: false, description: 'sample')
     // }
-    stages {
-        stage('APP VERSION'){
-            steps{
-                script{
-                    env.appVersion=readJSON(file: 'package.json').version
-                }
-            }
-        }
-    }
+    // stages {
+    //     stage('APP VERSION'){
+    //         steps{
+    //             script{
+    //                 env.appVersion=readJSON(file: 'package.json').version
+    //             }
+    //         }
+    //     }
+    // }
     stage('npm build') {
         steps {
             script{
