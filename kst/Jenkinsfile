@@ -1,0 +1,10 @@
+pipline{
+	agent any
+	stages {
+		stage('git clone'){
+			steps{
+				echo "this is a GIT CLONE STAGE"
+			}
+		}
+	}
+}
