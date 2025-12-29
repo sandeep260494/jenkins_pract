@@ -1,0 +1,46 @@
+    pipeline {
+        agent {
+            label 'KST-AGENT'
+        }
+        environment{
+            appVersion = ''
+            ac_ID = ''
+            region = 'us-east-1'
+            project = 'kst' 
+            component = 'dev'
+        }
+        options{
+            timeout(time: 30, unit: 'MINUTES')
+            disableConcurrentBuilds()
+        }
+        // parametters{
+        //     booleanparam(name: 'deploy', defaultValue: false, description: 'sample')
+        // }
+        stages {
+            stage('APP VERSION'){
+                steps{
+                    script {
+                        def packageJson = readJSON file: 'package.json'
+                        appVersion = packageJson.version
+                        echo "Package version: ${appVersion}"
+                    }
+                }
+            }
+        stage('npm build') {
+            steps {
+                script{
+                    sh """
+                        npm install
+                    """
+                }
+            }
+        }
+        stage('UNIT TESTING'){
+            steps{
+                script{
+                    echo "UNIT Testing"
+                }
+            }
+        }
+        }
+    }
