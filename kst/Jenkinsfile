@@ -35,7 +35,7 @@ pipeline{
         }
         stage('install Dependency'){
             steps{
-                script{
+                dir('kst'){
                     sh """
                         npm install
                     """
