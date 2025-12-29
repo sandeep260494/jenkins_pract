@@ -1,8 +1,8 @@
 pipeline{
     agent any
-    // {
-    //     label 'KST-AGENT'
-    // }
+    {
+        label 'KST-AGENT'
+    }
     environment {
         APP_VERSION = ''
         REGION =  'us-east-1'
