@@ -17,13 +17,13 @@ pipeline{
 
         stage('Read package.json') {
             steps {
-                // dir('kst') {   // 👈 IMPORTANT
+                dir('catalogue') {   // 👈 IMPORTANT
                     script {
                         def packageJson = readJSON file: 'package.json'
                         env.APP_VERSION = packageJson.version
                         echo "Package version: ${env.APP_VERSION}"
                     }
-                // }
+                }
             }
         }
     }
