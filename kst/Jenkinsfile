@@ -24,6 +24,25 @@ pipeline{
                 }
             }
         }
+        stage('check packages'){
+            steps{
+                script{
+                    sh """
+                        npm -v
+                        node -v
+                    """
+                }
+            }
+        }
+        stage('install Dependency'){
+            steps{
+                script{
+                    sh """
+                        npm install
+                    """
+                }
+            }
+        }
     }
     post {
         always {
