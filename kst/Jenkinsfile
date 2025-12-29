@@ -23,22 +23,22 @@ pipeline{
                 }
             }
         }
-        stage('install dependencies'){
-            steps{
-                script{
-                    sh """
-                        npm install
-                    """
-                }
-            }
+        // stage('install dependencies'){
+        //     steps{
+        //         script{
+        //             sh """
+        //                 npm install
+        //             """
+        //         }
+        //     }
         }
-        stage('unit testing'){
-            steps{
-                script{
-                    echo 'UNIT TESTING'
-                }
-            }
-        }
+        // stage('unit testing'){
+        //     steps{
+        //         script{
+        //             echo 'UNIT TESTING'
+        //         }
+        //     }
+        // }
     } 
     post {
         always {
