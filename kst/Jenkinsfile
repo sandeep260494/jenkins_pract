@@ -26,6 +26,7 @@ pipeline{
                 }
             }
         }
+    }
     post {
         always {
             echo "Job Executed"
@@ -36,7 +37,6 @@ pipeline{
         success {
             echo 'Job Success'
         }
-    }
     }
 
 }
