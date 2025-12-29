@@ -23,7 +23,7 @@ pipeline{
                         env.APP_VERSION = packageJson.version
                         echo "Package version: ${env.APP_VERSION}"
                     }
-                }
+                // }
             }
         }
     }
