@@ -14,19 +14,15 @@ pipeline{
         disableConcurrentBuilds()
     }  
     stages {
-
         stage('Read package.json') {
             steps {
-                dir('catalogue') {   // 👈 IMPORTANT
-                    script {
-                        def packageJson = readJSON file: 'package.json'
-                        env.APP_VERSION = packageJson.version
-                        echo "Package version: ${env.APP_VERSION}"
-                    }
+                script {
+                    def packageJson = readJSON file: 'package.json'
+                    APP_VERSION = packageJson.version
+                    echo "Package version: ${APP_VERSION}"
                 }
             }
         }
-    }
     post {
         always {
             echo "Job Executed"
