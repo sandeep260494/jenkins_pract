@@ -17,7 +17,7 @@ pipeline{
 
         stage('Read package.json') {
             steps {
-                dir('kst') {   // 👈 IMPORTANT
+                // dir('kst') {   // 👈 IMPORTANT
                     script {
                         def packageJson = readJSON file: 'package.json'
                         env.APP_VERSION = packageJson.version
