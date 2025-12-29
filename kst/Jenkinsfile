@@ -17,7 +17,7 @@ pipeline{
         stage('Read package.json'){
             steps{
                 script{
-                     def pkg = readJSON file: 'package.json'
+                     def pkg = readJSON file: 'kst/package.json'
                      env.APP_VERSION = pkg.version
                      echo "Application version: ${env.APP_VERSION}"
                 }
@@ -48,6 +48,6 @@ pipeline{
             echo "Failed"
         }
         success {
-            echo 'Job Success '
+            echo 'Job Success'
         }
     }
